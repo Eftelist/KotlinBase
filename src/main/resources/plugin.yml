@@ -1,0 +1,4 @@
+name: KotlinBase
+description: Base Kotlin plugin
+version: 0.0.1
+main: me.michel.KotlinBase.Base
