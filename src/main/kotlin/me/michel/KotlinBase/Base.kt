@@ -1,5 +1,6 @@
 package me.michel.KotlinBase
 
+import me.michel.KotlinBase.objects.SendArmorStand
 import me.michel.KotlinBase.objects.SendObject
 import org.bukkit.Bukkit
 import org.bukkit.plugin.Plugin
@@ -23,17 +24,20 @@ class Base : JavaPlugin() {
         // het commiten naar Github / Gitlab aan mij laten zien of ik hier nog iets wil doen.
         //TODO: Load example listener
 
-        // Hier sturen we via de SendObject.kt een simpele ArmorStand naar een speler, bijvoorbeeld stuur ik deze naar mezelf.
+        // Hier sturen we via de SendArmorStand.kt een simpele ArmorStand naar een speler, bijvoorbeeld stuur ik deze naar mezelf.
         // Ik weet dat dit eigenlijk net Java is, maar ik ga vanaf hier een beetje babbelen over wat Kotlin nou echt kan.
-        SendObject.sendArmorStand(Bukkit.getPlayer("Eftelist"))
+        SendObject.send(Bukkit.getPlayer("Eftelist"),"BaseKotlin $version enabled")
+        SendArmorStand.sendArmorStand(Bukkit.getPlayer("Eftelist"))
 
-        // Interfaces & Modules
         // TODO: Interfaces
+        // TODO: Dataclasses
+        // TODO: Reflections
+        // TODO: Extra
     }
 
     // In deze onDisable laad ik mijn instance uit en kan ik eventueel nog wachten totdat alles uitstaat. (Objects)
     override fun onDisable() {
-        SendObject.destroy()
+        SendArmorStand.destroy()
         instance = null
     }
 
@@ -45,6 +49,7 @@ class Base : JavaPlugin() {
         // In Java zet je hier bijvoorbeeld `public / private (final) Plugin plugin = null; neer, in Kotlin gaat het net ietsjes handiger
         // hier hoeft bijvoorbeeld alleen dit:
         var instance: Plugin? = null
+        var version = "0.0.13"
         // De var voor de variable, de naam, :, het type (hoeft niet) en de init.
     }
 }
