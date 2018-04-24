@@ -30,6 +30,11 @@ class Base : JavaPlugin() {
     // Dit is mijn statische object, vanuit hier kan ik in bijvoorbeeld in een andere class Base.instance doen.
     // Dit gebruik ik vaak voor het laden van modules en runnables. (Hier komen we later op terug)
     companion object {
+        // Wat is dit? Dit is een var, een var staat voor alle dingen die gewijzigd mogen worden door andere functies.
+        // Je kunt ook eventueel een val gebruiken, die mag maar 1 keer worden geinstalleerd.
+        // In Java zet je hier bijvoorbeeld `public / private (final) Plugin plugin = null; neer, in Kotlin gaat het net ietsjes handiger
+        // hier hoeft bijvoorbeeld alleen dit:
         var instance: Plugin? = null
+        // De var voor de variable, de naam, :, het type (hoeft niet) en de init.
     }
 }
