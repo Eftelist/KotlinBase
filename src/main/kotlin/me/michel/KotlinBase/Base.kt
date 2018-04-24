@@ -1,5 +1,7 @@
 package me.michel.KotlinBase
 
+import me.michel.KotlinBase.objects.SendObject
+import org.bukkit.Bukkit
 import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -19,11 +21,19 @@ class Base : JavaPlugin() {
         // Deze `TODO`
         // beschrijft wat ik nog wil gaan maken, Dit is erg handig als je bijv InteliJ IDEA gebruikt, hij zal bij
         // het commiten naar Github / Gitlab aan mij laten zien of ik hier nog iets wil doen.
-        //TODO: Load example objects & listeners.
+        //TODO: Load example listener
+
+        // Hier sturen we via de SendObject.kt een simpele ArmorStand naar een speler, bijvoorbeeld stuur ik deze naar mezelf.
+        // Ik weet dat dit eigenlijk net Java is, maar ik ga vanaf hier een beetje babbelen over wat Kotlin nou echt kan.
+        SendObject.sendArmorStand(Bukkit.getPlayer("Eftelist"))
+
+        // Interfaces & Modules
+        // TODO: Interfaces
     }
 
     // In deze onDisable laad ik mijn instance uit en kan ik eventueel nog wachten totdat alles uitstaat. (Objects)
     override fun onDisable() {
+        SendObject.destroy()
         instance = null
     }
 
